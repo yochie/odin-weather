@@ -1,6 +1,12 @@
 import "./styles.css";
 import { getWeatherDataFor } from "./weather.js";
 
+const iconsContext = import.meta.webpackContext("./icons", {
+  recursive: false,
+  regExp: /\.svg/,
+  mode: "sync",
+});
+
 const form = document.forms[0];
 const locationField = document.forms[0].location;
 const errorMsg = document.querySelector(".error-message");
@@ -47,9 +53,7 @@ function renderForecast(forecast) {
   tempCelsiusDisplay.textContent = `${forecast.celsiusTemp} °C`;
   tempFahrenheitDisplay.textContent = `${forecast.fahrenheitTemp} °F`;
   conditionDisplay.textContent = forecast.condition;
-  import(`./icons/${forecast.icon}.svg`).then((module) => {
-    iconDisplay.src = module.default;
-  });
+  iconDisplay.src = iconsContext(`./${forecast.icon}.svg`);
 }
 
 function toggleUnits(units) {
