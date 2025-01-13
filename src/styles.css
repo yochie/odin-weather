@@ -107,3 +107,10 @@ form input {
   background-color: lightcoral;
   display: none;
 }
+
+.loading-icon {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: lightblue;
+  display: none;
+}

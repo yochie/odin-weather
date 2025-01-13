@@ -4,6 +4,7 @@ import { getWeatherDataFor } from "./weather.js";
 const form = document.forms[0];
 const locationField = document.forms[0].location;
 const errorMsg = document.querySelector(".error-message");
+const loadingIcon = document.querySelector(".loading-icon");
 
 form.addEventListener("submit", fetchWeather);
 
@@ -11,6 +12,7 @@ async function fetchWeather(event) {
   event.preventDefault();
   const location = locationField.value;
   try {
+    setLoadingIcon(true);
     const forecast = await getWeatherDataFor(location);
     renderForecast(forecast);
     console.log(forecast);
@@ -19,6 +21,16 @@ async function fetchWeather(event) {
     console.log(error);
     errorMsg.textContent = error;
     errorMsg.style.display = "block";
+  } finally {
+    setLoadingIcon(false);
+  }
+}
+
+function setLoadingIcon(enabled) {
+  if (enabled) {
+    loadingIcon.style.display = "block";
+  } else {
+    loadingIcon.style.display = "none";
   }
 }
 
