@@ -3,6 +3,10 @@ class Forecast {
   date;
   celsiusTemp;
   condition;
+  icon;
+  get fahrenheitTemp() {
+    return this.celsiusTemp * 1.8 + 32;
+  }
 }
 
 async function getWeatherDataFor(location) {
@@ -21,10 +25,11 @@ async function getWeatherDataFor(location) {
 
 function parseData(json) {
   const forecast = new Forecast();
-  forecast.location = json.address;
-  forecast.date = json.days[0].datetime;
-  forecast.celsiusTemp = json.days[0].temp;
-  forecast.condition = json.days[0].conditions;
+  forecast.location = json.resolvedAddress;
+  forecast.date = json.currentConditions.datetime;
+  forecast.celsiusTemp = json.currentConditions.temp;
+  forecast.condition = json.currentConditions.conditions;
+  forecast.icon = json.currentConditions.icon;
   return forecast;
 }
 

@@ -6,15 +6,44 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="" method="">
-      <input type="text" name="location" id="location" />
-      <button type="submit">Get forecast</button>
-    </form>
-    <div class="result">
-      <div class="location"></div>
-      <div class="date"></div>
-      <div class="temp"></div>
-      <div class="condition"></div>
+    <div class="main">
+      <h1>Weather client</h1>
+      <form action="" method="">
+        <input type="text" name="location" id="location" />
+        <button type="submit">Go</button>
+      </form>
+      <div class="result-wrapper">
+        <div class="result">
+          <div class="location"></div>
+          <div class="temp">
+            <div class="celsius"></div>
+            <div class="fahrenheit"></div>
+          </div>
+          <div class="condition"></div>
+          <img class="icon" alt="condition-icon" />
+          <fieldset class="unit-toggle">
+            <div class="toggle">
+              <input
+                type="radio"
+                name="units"
+                id="celsius-toggle"
+                value="celsius"
+                checked
+              />
+              <label for="celsius-toggle">°C</label>
+            </div>
+            <div class="toggle">
+              <input
+                type="radio"
+                name="units"
+                id="fahrenheit-toggle"
+                value="fahrenheit"
+              />
+              <label for="fahrenheit-toggle">°F</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
     </div>
   </body>
 </html>
