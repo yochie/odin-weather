@@ -5,7 +5,7 @@ class Forecast {
   condition;
   icon;
   get fahrenheitTemp() {
-    return this.celsiusTemp * 1.8 + 32;
+    return Math.round(this.celsiusTemp * 1.8 + 32);
   }
 }
 
