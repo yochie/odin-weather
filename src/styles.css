@@ -42,6 +42,7 @@ body {
   display: flex;
   padding-top: 20vh;
   justify-content: center;
+  background-color: #cac4ce;
 }
 
 h1 {
@@ -62,6 +63,11 @@ form {
 
 form input {
   flex-grow: 1;
+  padding: 5px 10px;
+}
+
+form button {
+  padding: 5px 10px;
 }
 
 .result-wrapper {
@@ -69,10 +75,14 @@ form input {
 }
 
 .result {
-  margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 15px;
+  margin-top: 20px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background-color: #f7ece1;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .result .temp {
