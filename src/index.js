@@ -3,6 +3,7 @@ import { getWeatherDataFor } from "./weather.js";
 
 const form = document.forms[0];
 const locationField = document.forms[0].location;
+const errorMsg = document.querySelector(".error-message");
 
 form.addEventListener("submit", fetchWeather);
 
@@ -13,8 +14,11 @@ async function fetchWeather(event) {
     const forecast = await getWeatherDataFor(location);
     renderForecast(forecast);
     console.log(forecast);
+    errorMsg.style.display = "none";
   } catch (error) {
     console.log(error);
+    errorMsg.textContent = error;
+    errorMsg.style.display = "block";
   }
 }
 

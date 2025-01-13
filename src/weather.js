@@ -16,7 +16,7 @@ async function getWeatherDataFor(location) {
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${key}`;
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("Invalid status code");
+    throw new Error(`Server returned status code ${response.status}`);
   }
   const json = await response.json();
   console.log(json);

@@ -100,3 +100,10 @@ form input {
 .fahrenheit {
   display: none;
 }
+
+.error-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: lightcoral;
+  display: none;
+}
